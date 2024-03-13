@@ -1,27 +1,27 @@
-const Plants = require("../models/plants.model")
+import { Plant } from "../models/plants.model.js"
 
 async function create({ post }){
-    return await Plants.create(post)
+    return await Plant.create(post)
 }
 async function getAll(){
-    return await Plants.find()
+    return await Plant.find()
 }
 async function getAllByParams({options}){
-    return await Plants.find({...options})
+    return await Plant.find({...options})
 }
 async function getById({id}){
-    return await Plants.findById(id)
+    return await Plant.findById(id)
 }
 async function updateById({id,newData,populateData}){
     if(populateData)
-        return  await Plants.findByIdAndUpdate(id, newData, { new: true })
-    return await Plants.findByIdAndUpdate(id, newData, { new: true })
+        return  await Plant.findByIdAndUpdate(id, newData, { new: true })
+    return await Plant.findByIdAndUpdate(id, newData, { new: true })
 }
 async function deleteById({id}){
-    return await Plants.findByIdAndDelete(id)
+    return await Plant.findByIdAndDelete(id)
 }
 
-module.exports = {
+export default {
     create,
     getAll,
     getAllByParams,

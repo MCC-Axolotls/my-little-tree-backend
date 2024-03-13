@@ -1,10 +1,10 @@
-const express = require('express')
-const plants = require('../useCases/plants')
+import express from 'express'
+import plants from '../useCases/plants.usecase.js'
+//import { isAuth } from '../middlewares/auth.middleware.js'
 const router = express.Router()
-const verifyAuth = require('../middlewares/auth')
 
 // Create Plant
-router.post('/', verifyAuth, async (request, response) => {
+router.post('/', async (request, response) => {
   try {
     const data = request.body
     const documentCreated = await plants.create({ data })
@@ -94,7 +94,7 @@ router.get('/:id', async (request, response) => {
     }
 })
 // Update Taks by Id
-router.patch('/:id', verifyAuth, async (request, response) => {
+router.patch('/:id', async (request, response) => {
   try {
     const { id } = request.params
     const { body: newdata } = request
@@ -116,7 +116,7 @@ router.patch('/:id', verifyAuth, async (request, response) => {
   }
 })
 // Delete Plant by Id
-router.delete('/:id', verifyAuth, async (request, response) => {
+router.delete('/:id', async (request, response) => {
   try {
     const { id } = request.params
     const responseData = await plants.deleteById({ id })
@@ -137,4 +137,4 @@ router.delete('/:id', verifyAuth, async (request, response) => {
   }
 })
 
-module.exports = router
+export default router

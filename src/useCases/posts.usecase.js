@@ -1,27 +1,27 @@
-const Posts = require("../models/posts.model")
+import { Post } from "../models/posts.model.js"
 
 async function create({ post }){
-    return await Posts.create(post)
+    return await Post.create(post)
 }
 async function getAll(){
-    return await Posts.find()
+    return await Post.find()
 }
 async function getAllByParams({options}){
-    return await Posts.find({...options})
+    return await Post.find({...options})
 }
 async function getById({id}){
-    return await Posts.findById(id)
+    return await Post.findById(id)
 }
 async function updateById({id,newData,populateData}){
     if(populateData)
-        return  await Posts.findByIdAndUpdate(id, newData, { new: true })
-    return await Posts.findByIdAndUpdate(id, newData, { new: true })
+        return  await Post.findByIdAndUpdate(id, newData, { new: true })
+    return await Post.findByIdAndUpdate(id, newData, { new: true })
 }
 async function deleteById({id}){
     return await Posts.findByIdAndDelete(id)
 }
 
-module.exports = {
+export {
     create,
     getAll,
     getAllByParams,
