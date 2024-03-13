@@ -19,7 +19,7 @@ router.post('/', verifyAuth, async (request, response) => {
     response.status(400)
     response.json({
       success: false,
-      message: 'Ups! Algo salio mal, intenta de nuevo',
+      message: 'Ups! Something when wrong, try again',
       error: error.message
     })
   }
@@ -39,7 +39,7 @@ router.get('/', async (request, response) => {
         response.status(400)
         response.json({
         success: false,
-        message: 'Ups! Algo salio mal, intenta de nuevo',
+        message: 'Ups! Something when wrong, intenta de nuevo',
         error: error.message
         })
     }
@@ -67,7 +67,7 @@ router.get('/search', async (request, response) => {
         response.status(400)
         response.json({
         success: false,
-        message: 'Ups! Algo salio mal, intenta de nuevo',
+        message: 'Ups! Something when wrong, intenta de nuevo',
         error: error.message
         })
     }
@@ -88,7 +88,7 @@ router.get('/:id', async (request, response) => {
         response.status(400)
         response.json({
         success: false,
-        message: 'Ups! Algo salio mal, intenta de nuevo',
+        message: 'Ups! Something when wrong, intenta de nuevo',
         error: error.message
         })
     }
@@ -110,7 +110,7 @@ router.patch('/:id', verifyAuth, async (request, response) => {
     response.status(400)
     response.json({
       sucess: false,
-      message: 'Ups! Algo salio mal, intenta de nuevo',
+      message: 'Ups! Something when wrong, intenta de nuevo',
       error: error.message
     })
   }
@@ -131,7 +131,7 @@ router.delete('/:id', verifyAuth, async (request, response) => {
     response.status(400)
     response.json({
       sucess: false,
-      message: 'Ups! Algo salio mal, intenta de nuevo',
+      message: 'Ups! Something when wrong, intenta de nuevo',
       error: error.message
     })
   }
