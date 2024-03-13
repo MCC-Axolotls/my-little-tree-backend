@@ -1,5 +1,5 @@
 
-
+import * as dotenv from 'dotenv/config' 
 import dbConnect from './src/libs/db.js'
 import { server } from './src/server.js'
 
