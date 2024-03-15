@@ -21,13 +21,12 @@ const postSchema = new mongoose.Schema({
         type: String
     },
     plantId:{
-        type: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: "Plants",
-                required: true,
-            },
-        ],
+        type: Schema.Types.ObjectId,
+        ref: "Plants",
+        required: true,
+    },
+    createdAt: {
+        type: Date, required: true, default: Date.now 
     }
 })
 
