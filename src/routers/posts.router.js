@@ -47,13 +47,12 @@ router.get('/', async (request, response) => {
 // Get All Posts By Params
 router.get('/search', async (request, response) => {
     try {
-        const { activeTrial, record, id, title, assignee} = request.query;
+        const { title, plainTags, id, plantId} = request.query;
         let options = {}
-        if(activeTrial) options = {...options,activeTrial}
-        if(record !== undefined) options = {...options, record }
-        if(id) options = {...options,_id:id}
         if(title) options = {...options,title}
-        if(assignee) options = {...options,assignee}
+        if(plainTags !== undefined) options = {...options, plainTags }
+        if(id) options = {...options,_id:id}
+        if(plantId) options = {...options,plantId}
 
         const responseData = await posts.getAllByParams({options})
         response.json({

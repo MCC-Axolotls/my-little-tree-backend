@@ -6,8 +6,8 @@ const router = express.Router()
 // Create Plant
 router.post('/', async (request, response) => {
   try {
-    const data = request.body
-    const documentCreated = await plants.create({ data })
+    const plant = request.body
+    const documentCreated = await plants.create({ plant })
     response.json({
       success: true,
       message: 'The plant was inserted successfully',
@@ -47,13 +47,13 @@ router.get('/', async (request, response) => {
 // Get All Plants By Params
 router.get('/search', async (request, response) => {
     try {
-        const { activeTrial, record, id, title, assignee} = request.query;
+        const { nickname, plantType, id, userId} = request.query;
         let options = {}
-        if(activeTrial) options = {...options,activeTrial}
-        if(record !== undefined) options = {...options, record }
+
         if(id) options = {...options,_id:id}
-        if(title) options = {...options,title}
-        if(assignee) options = {...options,assignee}
+        if(nickname) options = {...options,nickname}
+        if(plantType !== undefined) options = {...options, plantType }
+        if(userId) options = {...options,userId}
 
         const responseData = await plants.getAllByParams({options})
         response.json({

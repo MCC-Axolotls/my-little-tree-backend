@@ -1,7 +1,8 @@
 import { Plant } from "../models/plants.model.js"
 
-async function create({ post }){
-    return await Plant.create(post)
+async function create({ plant }){
+    console.log(plant)
+    return await Plant.create(plant)
 }
 async function getAll(){
     return await Plant.find()

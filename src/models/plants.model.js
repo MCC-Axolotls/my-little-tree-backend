@@ -43,14 +43,13 @@ const plantSchema = new mongoose.Schema({
         type: String
     },
     userId: {
-        type: [
-          {
-            type: Schema.Types.ObjectId,
-            ref: "Users",
-            required: true,
-          },
-        ],
+        type: Schema.Types.ObjectId,
+        ref: "Users"
     },
+    createdAt: {
+        type:  Date, required: true, default: Date.now 
+    }
+    
 })
 
 const Plant = mongoose.model('plants', plantSchema)
