@@ -4,10 +4,12 @@ import plants from '../useCases/plants.usecase.js'
 const router = express.Router()
 
 // Create Plant
+
+//http://locahost:8080/plants
 router.post('/', async (request, response) => {
   try {
     const data = request.body
-    const documentCreated = await plants.create({ data })
+    const documentCreated = await plants.create(data)
     response.json({
       success: true,
       message: 'The plant was inserted successfully',
@@ -97,11 +99,11 @@ router.get('/:id', async (request, response) => {
 router.patch('/:id', async (request, response) => {
   try {
     const { id } = request.params
-    const { body: newdata } = request
-    const plantUpdated = await plants.updateById({id, newdata})
+    const { body: newData } = request
+    const plantUpdated = await plants.updateById(id, newData)
     response.json({
       success: true,
-      message: 'Tus datos han sido actualizado correctamente',
+      message: 'The data has been updated',
       data: {
         plant: plantUpdated
       }
