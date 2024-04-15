@@ -7,12 +7,12 @@ const router = express.Router()
 router.post('/', async (request, response) => {
   try {
     const data = request.body
-    const documentCreated = await posts.create({ data })
+    const postCreated = await posts.create({ post: data })
     response.json({
       success: true,
       message: 'The post was inserted successfully',
       data: {
-        posts: documentCreated
+        post: postCreated
       }
     })
   } catch (error) {
@@ -47,12 +47,13 @@ router.get('/', async (request, response) => {
 // Get All Posts By Params
 router.get('/search', async (request, response) => {
     try {
-        const { title, plainTags, id, plantId} = request.query;
+        const { title, plainTags, id, plantId, userId} = request.query;
         let options = {}
         if(title) options = {...options,title}
         if(plainTags !== undefined) options = {...options, plainTags }
         if(id) options = {...options,_id:id}
         if(plantId) options = {...options,plantId}
+        if(userId) options = {...options,userId}
 
         const responseData = await posts.getAllByParams({options})
         response.json({

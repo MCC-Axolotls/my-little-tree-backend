@@ -25,6 +25,9 @@ const postSchema = new mongoose.Schema({
         ref: "Plants",
         required: true,
     },
+    userId: {
+        type: String
+    },
     createdAt: {
         type: Date, required: true, default: Date.now 
     }

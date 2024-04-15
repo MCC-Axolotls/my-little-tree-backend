@@ -4,17 +4,15 @@ import plants from '../useCases/plants.usecase.js'
 const router = express.Router()
 
 // Create Plant
-
-//http://locahost:8080/plants
 router.post('/', async (request, response) => {
   try {
     const plant = request.body
-    const documentCreated = await plants.create({ plant })
+    const planCreated = await plants.create({ plant })
     response.json({
       success: true,
       message: 'The plant was inserted successfully',
       data: {
-        plants: documentCreated
+        plant: planCreated
       }
     })
   } catch (error) {
