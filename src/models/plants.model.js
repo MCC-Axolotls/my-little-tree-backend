@@ -43,13 +43,7 @@ const plantSchema = new mongoose.Schema({
         type: String
     },
     userId: {
-        type: [
-          {
-            type: Schema.Types.ObjectId,
-            ref: "Users",
-            required: true,
-          },
-        ],
+        type: String
     },
 })
 
