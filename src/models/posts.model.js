@@ -22,7 +22,7 @@ const postSchema = new mongoose.Schema({
     },
     plantId:{
         type: Schema.Types.ObjectId,
-        ref: "Plants",
+        ref: "plants",
         required: true,
     },
     userId: {

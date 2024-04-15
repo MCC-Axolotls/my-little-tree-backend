@@ -4,10 +4,10 @@ async function create({ post }){
     return await Post.create(post)
 }
 async function getAll(){
-    return await Post.find()
+    return await Post.find().populate("plantId")
 }
 async function getAllByParams({options}){
-    return await Post.find({...options})
+    return await Post.find({...options}).populate("plantId")
 }
 async function getById({id}){
     return await Post.findById(id)
