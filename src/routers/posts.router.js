@@ -78,7 +78,7 @@ router.get('/:id', async (request, response) => {
         const responseData = await posts.getById({id})
         response.json({
         success: true,
-        message: 'Posts Found',
+        message: 'Post Found',
             data: {
                 posts: responseData
             }
@@ -96,11 +96,11 @@ router.get('/:id', async (request, response) => {
 router.patch('/:id', async (request, response) => {
   try {
     const { id } = request.params
-    const { body: newdata } = request
-    const postUpdated = await posts.updateById({id, newdata})
+    const { body: newData } = request
+    const postUpdated = await posts.updateById({id, newData})
     response.json({
       success: true,
-      message: 'Tus datos han sido actualizado correctamente',
+      message: 'The data has been updated',
       data: {
         post: postUpdated
       }

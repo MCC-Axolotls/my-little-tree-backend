@@ -12,9 +12,8 @@ async function getAllByParams({options}){
 async function getById({id}){
     return await Plant.findById(id)
 }
-async function updateById({id,newData,populateData}){
-    if(populateData)
-        return  await Plant.findByIdAndUpdate(id, newData, { new: true })
+async function updateById(id,newData){
+    Plant.findByIdAndUpdate()
     return await Plant.findByIdAndUpdate(id, newData, { new: true })
 }
 async function deleteById({id}){
