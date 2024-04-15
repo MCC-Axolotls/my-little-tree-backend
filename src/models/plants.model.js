@@ -45,6 +45,10 @@ const plantSchema = new mongoose.Schema({
     userId: {
         type: String
     },
+    createdAt: {
+        type:  Date, required: true, default: Date.now 
+    }
+    
 })
 
 const Plant = mongoose.model('plants', plantSchema)

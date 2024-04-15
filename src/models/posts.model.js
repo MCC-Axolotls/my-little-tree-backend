@@ -24,6 +24,9 @@ const postSchema = new mongoose.Schema({
         type: Schema.Types.ObjectId,
         ref: "Plants",
         required: true,
+    },
+    createdAt: {
+        type: Date, required: true, default: Date.now 
     }
 })
 
