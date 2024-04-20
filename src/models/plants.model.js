@@ -30,7 +30,7 @@ const plantSchema = new mongoose.Schema({
     fertilizerFrequency: {
         type: Number,
     },
-    lastFertitlizer: {
+    lastFertilizer: {
         type: Date,
     },
     nextFertilizer: {
